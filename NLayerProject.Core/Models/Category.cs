@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
-namespace NLayerProject.Core.Model
+namespace NLayerProject.Core.Models
 {
    public class Category
     {
