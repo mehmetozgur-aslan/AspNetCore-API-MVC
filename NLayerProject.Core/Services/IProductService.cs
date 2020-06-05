@@ -8,6 +8,6 @@ namespace NLayerProject.Core.Services
 {
    public interface IProductService:IService<Product>
     {
-        Task<Product> GetProductWithCategoryByIdAsync(int productId);
+        Task<Product> GetWithCategoryByIdAsync(int productId);
     }
 }
