@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayerProject.API", "NLayerProject.API\NLayerProject.API.csproj", "{43884A4C-EE70-48CC-99EB-C46C5C64B272}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayerProject.API", "NLayerProject.API\NLayerProject.API.csproj", "{43884A4C-EE70-48CC-99EB-C46C5C64B272}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayerProject.Core", "NLayerProject.Core\NLayerProject.Core.csproj", "{D18907B4-BD1F-465B-A7CC-7B9282FA2E64}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayerProject.Core", "NLayerProject.Core\NLayerProject.Core.csproj", "{D18907B4-BD1F-465B-A7CC-7B9282FA2E64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayerProject.Data", "NLayerProject.Data\NLayerProject.Data.csproj", "{B4EA8ECA-1DC1-4065-9919-090C9B06201B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayerProject.Data", "NLayerProject.Data\NLayerProject.Data.csproj", "{B4EA8ECA-1DC1-4065-9919-090C9B06201B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayerProject.Service", "NLayerProject.Service\NLayerProject.Service.csproj", "{B3E7FE71-7C09-4792-B06F-AB836F9D1762}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NLayerProject.Service", "NLayerProject.Service\NLayerProject.Service.csproj", "{B3E7FE71-7C09-4792-B06F-AB836F9D1762}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLayerProject.WebUI", "NLayerProject.WebUI\NLayerProject.WebUI.csproj", "{FE5F61F2-C8ED-4500-BF3C-BB239BD34F29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B3E7FE71-7C09-4792-B06F-AB836F9D1762}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3E7FE71-7C09-4792-B06F-AB836F9D1762}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3E7FE71-7C09-4792-B06F-AB836F9D1762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE5F61F2-C8ED-4500-BF3C-BB239BD34F29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE5F61F2-C8ED-4500-BF3C-BB239BD34F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE5F61F2-C8ED-4500-BF3C-BB239BD34F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE5F61F2-C8ED-4500-BF3C-BB239BD34F29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
