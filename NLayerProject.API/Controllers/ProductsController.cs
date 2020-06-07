@@ -35,6 +35,7 @@ namespace NLayerProject.API.Controllers
             return Ok(productsDto);
         }
 
+        [ServiceFilter(typeof(ProductNotFoundFilter))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -45,7 +46,7 @@ namespace NLayerProject.API.Controllers
             return Ok(productDto);
         }
 
-        [ValidationFilter]
+        //[ValidationFilter] global seviyede tanımlandı.
         [HttpPost]
         public async Task<IActionResult> Save(ProductDto productDto)
         {
@@ -61,7 +62,7 @@ namespace NLayerProject.API.Controllers
 
             return NoContent();
         }
-
+        [ServiceFilter(typeof(ProductNotFoundFilter))]
         [HttpDelete("{id}")]
         public IActionResult Remove(int id)
         {
@@ -70,6 +71,7 @@ namespace NLayerProject.API.Controllers
             return NoContent();
         }
 
+        [ServiceFilter(typeof(ProductNotFoundFilter))]
         [HttpGet("{id}/category")]
         public async Task<IActionResult> GetWithCategoryById(int id)
         {

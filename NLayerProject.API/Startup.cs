@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NLayerProject.API.Filters;
 using NLayerProject.Core.Repositories;
 using NLayerProject.Core.Services;
 using NLayerProject.Core.UnitOfWorks;
@@ -36,6 +37,8 @@ namespace NLayerProject.API
         {
             services.AddAutoMapper(typeof(Startup));
 
+            services.AddScoped<ProductNotFoundFilter>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IService<>), typeof(Service<>));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
@@ -50,7 +53,10 @@ namespace NLayerProject.API
                 });
             });
 
-            services.AddControllers();
+            services.AddControllers(o =>
+            {
+                o.Filters.Add(new ValidationFilter());
+            });
 
             // Hatalarý kontrol etme
             services.Configure<ApiBehaviorOptions>(options =>
