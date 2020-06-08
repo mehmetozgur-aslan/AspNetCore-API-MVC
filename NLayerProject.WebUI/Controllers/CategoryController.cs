@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using NLayerProject.Core.Models;
 using NLayerProject.Core.Services;
 using NLayerProject.WebUI.DTOs;
+using NLayerProject.WebUI.Filters;
 
 namespace NLayerProject.WebUI.Controllers
 {
@@ -57,6 +58,7 @@ namespace NLayerProject.WebUI.Controllers
             return RedirectToAction("Index");
         }
 
+        [ServiceFilter(typeof(CategoryNotFoundFilter))]
         public IActionResult Delete(int id)
         {
             var category = _categoryService.GetByIdAsync(id).Result;

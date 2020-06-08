@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using NLayerProject.WebUI.DTOs;
 using NLayerProject.WebUI.Models;
 
 namespace NLayerProject.WebUI.Controllers
@@ -29,9 +30,9 @@ namespace NLayerProject.WebUI.Controllers
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Error(ErrorDto errorDto)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(errorDto);
         }
     }
 }
