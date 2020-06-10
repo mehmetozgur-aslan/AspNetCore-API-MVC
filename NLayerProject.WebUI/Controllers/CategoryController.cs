@@ -14,13 +14,11 @@ namespace NLayerProject.WebUI.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
         private readonly CategoryApiService _categoryApiService;
 
-        public CategoryController(ICategoryService categoryService, IMapper mapper, CategoryApiService categoryApiService)
+        public CategoryController(IMapper mapper, CategoryApiService categoryApiService)
         {
-            _categoryService = categoryService;
             _mapper = mapper;
             _categoryApiService = categoryApiService;
         }
@@ -48,24 +46,23 @@ namespace NLayerProject.WebUI.Controllers
         //update/5
         public async Task<IActionResult> Update(int id)
         {
-            var category = await _categoryService.GetByIdAsync(id);
+            var category = await _categoryApiService.GetByIdAsync(id);
 
             return View(_mapper.Map<CategoryDto>(category));
         }
 
         [HttpPost]
-        public IActionResult Update(CategoryDto categoryDto)
+        public async Task<IActionResult> Update(CategoryDto categoryDto)
         {
-            _categoryService.Update(_mapper.Map<Category>(categoryDto));
+            await _categoryApiService.Update(categoryDto);
 
             return RedirectToAction("Index");
         }
 
         [ServiceFilter(typeof(CategoryNotFoundFilter))]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            var category = _categoryService.GetByIdAsync(id).Result;
-            _categoryService.Remove(category);
+            await _categoryApiService.Remove(id);
 
             return RedirectToAction("Index");
         }

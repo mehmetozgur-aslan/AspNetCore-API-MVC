@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using NLayerProject.Core.Services;
+using NLayerProject.WebUI.APIServices;
 using NLayerProject.WebUI.DTOs;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace NLayerProject.WebUI.Filters
 {
     public class CategoryNotFoundFilter : ActionFilterAttribute
     {
-        private readonly ICategoryService _categoryService;
+        private readonly CategoryApiService _categoryService;
 
-        public CategoryNotFoundFilter(ICategoryService categoryService)
+        public CategoryNotFoundFilter(CategoryApiService categoryService)
         {
             _categoryService = categoryService;
         }

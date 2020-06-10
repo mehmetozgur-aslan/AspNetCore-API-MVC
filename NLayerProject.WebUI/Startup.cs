@@ -16,7 +16,6 @@ using NLayerProject.Core.UnitOfWorks;
 using NLayerProject.Data;
 using NLayerProject.Data.Repositories;
 using NLayerProject.Data.UnitOfWorks;
-using NLayerProject.Service.Services;
 using NLayerProject.WebUI.APIServices;
 using NLayerProject.WebUI.Filters;
 
@@ -44,10 +43,8 @@ namespace NLayerProject.WebUI
             services.AddScoped<CategoryNotFoundFilter>();
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped(typeof(IService<>), typeof(Service<>));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddScoped<ICategoryService, CategoryService>();
-            services.AddScoped<IProductService, ProductService>();
+            //services.AddScoped<IProductService, ProductService>();
 
             services.AddDbContext<AppDbContext>(options =>
             {
