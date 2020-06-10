@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using NLayerProject.Core.Models;
 using NLayerProject.Core.Services;
+using NLayerProject.WebUI.APIServices;
 using NLayerProject.WebUI.DTOs;
 using NLayerProject.WebUI.Filters;
 
@@ -15,16 +16,18 @@ namespace NLayerProject.WebUI.Controllers
     {
         private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
+        private readonly CategoryApiService _categoryApiService;
 
-        public CategoryController(ICategoryService categoryService, IMapper mapper)
+        public CategoryController(ICategoryService categoryService, IMapper mapper, CategoryApiService categoryApiService)
         {
             _categoryService = categoryService;
             _mapper = mapper;
+            _categoryApiService = categoryApiService;
         }
 
         public async Task<IActionResult> Index()
         {
-            var categories = await _categoryService.GetAllAsync();
+            var categories = await _categoryApiService.GetAllAsync();
 
             return View(_mapper.Map<IEnumerable<CategoryDto>>(categories));
         }
@@ -37,7 +40,7 @@ namespace NLayerProject.WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(CategoryDto categoryDto)
         {
-            await _categoryService.AddAsync(_mapper.Map<Category>(categoryDto));
+            await _categoryApiService.AddAsync(categoryDto);
 
             return RedirectToAction("Index");
         }
